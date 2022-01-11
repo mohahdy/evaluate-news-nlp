@@ -14,8 +14,9 @@ function handleSubmit(event) {
     //     body: formdata,
     //     redirect: 'follow'
     // };
-    // console.log("requestOptions: ", requestOptions);
-    fetch("https://api.meaningcloud.com/sentiment-2.1?"+`key=${ process.env.API_KEY}&url=${url}&lang=en`)
+    let formText = document.getElementById('name').value
+    if (Client.checkForName(formText)) {
+    fetch("https://api.meaningcloud.com/sentiment-2.1?"+`key=${ process.env.API_KEY}&url=${formText}&lang=en`)
     .then(res=> res.json())
     .then(data=>{
         console.log("data: ", data)
@@ -25,7 +26,10 @@ function handleSubmit(event) {
                 document.getElementById('model').innerHTML = "Model : " + data.model
                 document.getElementById('score_tag').innerHTML = "Score Tag : " + data.score_tag
     }).catch(error => console.log('error', error));
-    console.log("https://api.meaningcloud.com/sentiment-2.1?"+`key=${ process.env.API_KEY}&url=${url}&lang=en`)
+    console.log("https://api.meaningcloud.com/sentiment-2.1?"+`key=${process.env.API_KEY}&url=${url}&lang=en`)
+}else{
+    alert("Please enter a valid URL")
+}
     // fetch("https://api.meaningcloud.com/sentiment-2.1?"+`key=${ process.env.API_KEY}&url=${url}&lang=en`)
     //     .then(response => (response.json()))
     //     .then((res) => ( function (res) {
