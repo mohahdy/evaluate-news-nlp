@@ -3,7 +3,6 @@ function handleSubmit(event) {
     let fetchedData;
     // const fetch = require('node-fetch')
 
-    const url = "https://www.nytimes.com/2022/01/11/us/politics/biden-filibuster-voting-rights.html"
     // const formdata = new FormData();
     // formdata.append("key", process.env.API_KEY);
     // formdata.append("url", "https://www.nytimes.com/2022/01/11/us/politics/biden-filibuster-voting-rights.html");
@@ -20,13 +19,16 @@ function handleSubmit(event) {
     .then(res=> res.json())
     .then(data=>{
         console.log("data: ", data)
+        document.getElementById('status').innerHTML = "Status : " + data.status.msg
+
         document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
                 document.getElementById('confidence').innerHTML = "Confidence : " + data.confidence
                 document.getElementById('irony').innerHTML = "Irony:  : " + data.irony
                 document.getElementById('model').innerHTML = "Model : " + data.model
                 document.getElementById('score_tag').innerHTML = "Score Tag : " + data.score_tag
+                document.getElementById('subjectivity').innerHTML = "Subjectivity : " + data.subjectivity
     }).catch(error => console.log('error', error));
-    console.log("https://api.meaningcloud.com/sentiment-2.1?"+`key=${process.env.API_KEY}&url=${url}&lang=en`)
+    console.log("https://api.meaningcloud.com/sentiment-2.1?"+`key=${process.env.API_KEY}&url=${formText}&lang=en`)
 }else{
     alert("Please enter a valid URL")
 }
@@ -74,7 +76,7 @@ function handleSubmit(event) {
     fetch('http://localhost:8081/test')
         .then(res => res.json())
         .then(function (res) {
-            document.getElementById('results').innerHTML = res.message
+            // document.getElementById('results').innerHTML = res.message
             console.log("/test res: ", res)
         })
 

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>News Article evaluation</title>
 
     </head>
 
@@ -10,36 +10,38 @@
 
         <header>
             <div class="">
-                Logo
+                <img src="https://www.pikpng.com/pngl/b/30-304461_generic-placeholder-image-generic-business-logo-clipart.png" alt = "logo">
             </div>
             <div class="">
-                navigation
+                Evaluate News Article through NLP
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="text" name="input" value=""  placeholder="Enter a news article URL to evaluate">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <em>Form Results:</em>
+                <div id="status"></div>
                 <div id="agreement"></div>
                 <div id="confidence"></div>
                 <div id="irony"></div>
                 <div id="model"></div>
                 <div id="score_tag"></div>
+                <div id="subjectivity"></div>
+
 
 
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Copyright 2022 M. A. Soliman</p>
         </footer>
 
     </body>
